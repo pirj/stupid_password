@@ -46,7 +46,7 @@ Example plugin code:
     PasswordStupidityChecker.new.is_stupid? "rednaxela"
      => "Is that a reversed male name?"
 
-# Inspiration
+## Inspiration
 
 http://habrahabr.ru/post/113401/
 http://habrahabr.ru/post/132880/
@@ -60,7 +60,7 @@ http://habrahabr.ru/post/2388/
 http://habrahabr.ru/post/75345/
 http://xato.net/passwords/more-top-worst-passwords/
 
-# Roadmap
+## Roadmap
 
 * Implement permutations
 * Use language specific dictionaries eg https://github.com/yohasebe/engtagger/blob/master/lib/engtagger/words.yml
@@ -71,11 +71,11 @@ http://xato.net/passwords/more-top-worst-passwords/
 * Allow double checks ('monkey' => Is that an english word AND is it in top25 popular passwords?)
 * Implement benchmarks, refactor
 
-# Contributors
+## Contributors
 
 ...none yet
 
-# Links
+## Links
 
 * [Code](https://github.com/pirj/stupid_password)
 * [Wiki](https://github.com/pirj/stupid_password/wiki)
