@@ -1,6 +1,6 @@
 class StupidPassword::Modifier::Upcase
   def self.modify password
-    password.downcase
+    password.upcase
   end
 
   def self.prefix
