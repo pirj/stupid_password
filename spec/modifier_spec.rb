@@ -1,6 +1,6 @@
 require 'spec_helper.rb'
 
-describe StupidPassword::Modifiers do
+describe StupidPassword::Modifier do
   it "detects capitalized names" do
     'Alexander'.is_stupid?.should eq "Is that a capitalized male name?"
     'Rnieciunm'.is_stupid?.should eq false
