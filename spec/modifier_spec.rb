@@ -1,3 +1,4 @@
+#encoding: utf-8
 require 'spec_helper.rb'
 
 describe StupidPassword::Modifier do
@@ -12,6 +13,11 @@ describe StupidPassword::Modifier do
   it "detects upcase names" do
     'ALEXANDER'.is_stupid?.should eq "Is that a male name in upper case?"
     'RNIECIUNM'.is_stupid?.should eq false
+  end
+
+  it "detects names in different layout" do
+    'фдучфтвук'.is_stupid?.should eq "Is that a male name typed with different keyboard layout?"
+    'Fktrcfylhf'.is_stupid?.should eq "Is that a female name typed with different keyboard layout?"
   end
 
 end

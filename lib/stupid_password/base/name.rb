@@ -1,6 +1,7 @@
+#encoding: utf-8
 class StupidPassword::Base::Name
-  MALE_NAMES = %w{alexander alex andrey andrew basil claire vladimir vasily SASHA}
-  FEMALE_NAMES = %w{alexandra vera nadejda lubov SASHA}
+  MALE_NAMES = %w{alexander alex andrey andrew basil claire vladimir vasily SASHA Александр}
+  FEMALE_NAMES = %w{alexandra vera nadejda lubov SASHA Александра}
 
   def self.guess password
     each_guess do |name, guess_description|
