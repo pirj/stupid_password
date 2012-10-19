@@ -6,7 +6,7 @@ describe StupidPassword::Modifier do
     'Rnieciunm'.is_stupid?.should eq false
   end
   it "detects downcase names" do
-    'alexander'.is_stupid?.should eq "Is that a male name in lower case?"
+    'sasha'.is_stupid?.should match /Is that a (fe)?male name in lower case\?/
     'rnieciunm'.is_stupid?.should eq false
   end
   it "detects upcase names" do
