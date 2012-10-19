@@ -3,7 +3,19 @@ class StupidPassword::Base::Name
   FEMALE_NAMES = %w{alexandra vera nadejda lubov SASHA}
 
   def self.guess password
-    raise StupidPassword::Stupid.new 'male name' if MALE_NAMES.include? password
-    raise StupidPassword::Stupid.new 'female name' if FEMALE_NAMES.include? password
+    each_guess do |name, guess_description|
+      raise StupidPassword::Stupid.new guess_description if name == password
+    end
+
+    StupidPassword.modifiers.each do |modifier|
+      each_guess do |name, guess_description|
+        raise StupidPassword::Stupid.new "#{modifier.prefix} #{guess_description} #{modifier.postfix}".strip if modifier.modify(name) == password
+      end
+    end
+  end
+
+  def self.each_guess
+    MALE_NAMES.each{|name| yield name, 'male name' }
+    FEMALE_NAMES.each{|name| yield name, 'female name' }
   end
 end

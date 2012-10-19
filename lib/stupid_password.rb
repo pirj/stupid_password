@@ -1,5 +1,9 @@
 module StupidPassword
 
+  def self.modifiers
+    Modifier.constants.map{|clazz_name|  Modifier.const_get clazz_name }
+  end
+
   def is_stupid? password=self
     StupidPassword::Base.constants.each do |clazz_name|
       clazz = Base.const_get clazz_name
