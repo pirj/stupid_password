@@ -3,11 +3,11 @@ module StupidPassword
   def self.modifiers
     Modifier.constants.map{|clazz_name|  Modifier.const_get clazz_name }
   end
-
-  def is_stupid? password=self
+  
+  def is_stupid? password=self, depth = 1
     StupidPassword::Base.constants.each do |clazz_name|
       clazz = Base.const_get clazz_name
-      clazz.guess password
+      clazz.guess password, depth
     end
 
     #TODO check with all permutations of modifiers
@@ -15,6 +15,10 @@ module StupidPassword
     false # Probably not so stupid
   rescue Stupid => guessed
     "Is that a #{guessed.message}?"
+  end
+  
+  def self.is_stupid?(password, depth = 1)
+    password.extend(StupidPassword).is_stupid?(password, depth)
   end
 end
 

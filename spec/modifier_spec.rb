@@ -20,4 +20,8 @@ describe StupidPassword::Modifier do
     'Fktrcfylhf'.is_stupid?.should eq "Is that a female name typed with different keyboard layout?"
   end
 
+  it "detects combination of a pair of modifications" do
+    StupidPassword.is_stupid?('Фдуч', 2).should eq "Is that a capitalized male name typed with different keyboard layout?"
+  end
+  
 end
