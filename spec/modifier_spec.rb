@@ -24,4 +24,7 @@ describe StupidPassword::Modifier do
     StupidPassword.is_stupid?('Фдуч', 2).should eq "Is that a capitalized male name typed with different keyboard layout?"
   end
   
+  it "combination of three modificators should be able to find also combination of just two modificators" do
+    StupidPassword.is_stupid?('Фдуч', 3).should eq "Is that a capitalized male name typed with different keyboard layout?"
+  end
 end
